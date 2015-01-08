@@ -1,0 +1,31 @@
+{
+  "name": "madewithlove-styles",
+  "version": "0.1.0",
+  "main": "dist/css/madewithlove-styles.css",
+  "keywords": [
+    "styleguide"
+  ],
+  "ignore": [
+    ".gitignore",
+    ".ruby-version",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "package.json",
+    "src/**/*",
+    ".grunt/**/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/madewithlove/madewithlove-styles",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "fbfa007b8a868f5bdd2d804b54202b0dd15ef20c"
+  },
+  "_source": "git://github.com/madewithlove/madewithlove-styles.git",
+  "_target": "~0.1.0",
+  "_originalSource": "madewithlove-styles",
+  "_direct": true
+}

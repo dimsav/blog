@@ -1,0 +1,24 @@
+{
+  "name": "blog-madewithlove",
+  "version": "0.1.0",
+  "authors": [
+    "madewithlove <hello@madewithlove.be>"
+  ],
+  "description": "madewithlove blog",
+  "keywords": [
+    "blog"
+  ],
+  "license": "Copyrighted",
+  "homepage": "http://blog.madewithlove.be/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "madewithlove-styles": "~0.1.0"
+  }
+}

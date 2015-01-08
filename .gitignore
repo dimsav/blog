@@ -1,4 +1,6 @@
 _site
 .sass-cache
 .compass
+
 bower_components
+assets/base

@@ -12,8 +12,6 @@ github_username:  madewithlove
 markdown: kramdown
 permalink: "post/:title"
 
-gems:
-- jekyll-compass
-
 sass:
-  sass_dir: _compass
+  sass_dir: _sass
+  style: :compressed

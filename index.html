@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<main class="blog-index">
+  <article>
+    <section class="latest-posts">
+      <h1>Latest articles</h1>
+      <ul>
+        {% for post in site.posts %}
+          <li>
+            <h2>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+            <span class="meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </article>
+</main>

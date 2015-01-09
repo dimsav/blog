@@ -12,7 +12,8 @@ layout: default
             <h2>
               <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
-            <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "<span>%b %-d</span> %Y" }}</time>
+            <p class="author">Written by {{ post.author }}</p>
             <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
             <p class="read-more">
               <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">Continue reading…</a>

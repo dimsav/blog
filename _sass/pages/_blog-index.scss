@@ -9,14 +9,40 @@
     }
 
     li {
-      margin: 2em 0 4em;
+      margin: 3em 0 6em;
+      position: relative;
+    }
+
+    h2 {
+      margin-bottom: 0.2em;
+    }
+
+    time {
+      background: #EEF0F1;
+      color: #333;
+      margin-right: 1em;
+      padding: 0.5em 0;
+      position: absolute;
+      right: 100%;
+      text-align: center;
+      top: 0em;
+      width: 4em;
+
+      span {
+        display: block;
+        white-space: nowrap;
+      }
+    }
+
+    .author {
+      font-style: italic;
     }
 
     .read-more {
       text-align: right;
 
       a {
-        background: #cb1a38;
+        background: #CB1A38;
         color: white;
         font-weight: 300;
         padding: 0.4em 0.8em;

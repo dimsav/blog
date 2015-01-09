@@ -1,0 +1,8 @@
+.site-header {
+  .branding a {
+    &:hover,
+    &:focus {
+      color: #333;
+    }
+  }
+}

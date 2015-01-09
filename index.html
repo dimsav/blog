@@ -12,8 +12,11 @@ layout: default
             <h2>
               <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
-            <span class="meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%b %-d, %Y" }}</time>
             <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+            <p class="read-more">
+              <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">Continue reading…</a>
+            </p>
           </li>
         {% endfor %}
       </ul>

@@ -9,7 +9,23 @@
     }
 
     li {
-      margin: 0;
+      margin: 2em 0 4em;
+    }
+
+    .read-more {
+      text-align: right;
+
+      a {
+        background: #cb1a38;
+        color: white;
+        font-weight: 300;
+        padding: 0.4em 0.8em;
+
+        &:after {
+          content: '\203A';
+          margin-left: 0.3em;
+        }
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
 layout: post
 title: "Integrating Elasticsearch with Your Laravel app"
 date: 2015-01-02
-author: Tony Messias
+author: tony
 categories: [laravel]
 ---
 
@@ -33,7 +33,7 @@ First thing to know is that you have to have DATA to use elasticsearch, so in my
 
 The way I'll show you is by using [Model Observers](http://laravel.com/docs/4.2/eloquent#model-observers), so you have a refular Eloquent Model, let's say <code>Article</code>. Then you have a Observer like so:
 
-```php
+{% highlight php %}
 // file: app/Observers/ElasticsearchArticleObserver.php
 <?php namespace App\Observers;
 
@@ -78,11 +78,11 @@ class ElasticsearchArticleObserver
         ]);
     }
 }
-```
+{% endhighlight %}
 
 We can register our Observer using a ServiceProvider, like so:
 
-```php
+{% highlight php %}
 <?php
 
 namespace App\Providers;
@@ -107,7 +107,7 @@ class ObserversServiceProvider extends ServiceProvider
         });
     }
 }
-```
+{% endhighlight %}
 
 Remember to register the Service Provider on your <code>config/app.php</code> file.
 
@@ -119,7 +119,8 @@ Worth noting that this happens synchronously during the Request. A better way is
 Now that you have your elasticsearch fed with your application data, you can perform a better search experience. Let's assume you already have a repository that makes the search using LIKE clause or some full-text search functions. Well, you can still have that as a backup in case your elasticsearch servers crash, in order to do so, you just *decorate* your Repository. Let's see how we could do that, first you need to extract an interface of your repository, in case you don't already have
 one:
 
-```php
+
+{% highlight php %}
 // file: app/Articles/ArticlesRepository.php
 <?php namespace App\Articles;
 
@@ -138,11 +139,11 @@ interface ArticlesRepository
      */
     public function all();
 }
-```
+{% endhighlight %}
 
 Then your Eloquent repository should implement it like so:
 
-```php
+{% highlight php %}
 // file: app/Articles/EloquentArticlesRepository.php
 <?php namespace App\Articles;
 
@@ -168,11 +169,11 @@ class EloquentArticlesRepository implements ArticlesRepository
         return Article::all();
     }
 }
-```
+{% endhighlight %}
 
 Now, you can write the ElasticseachArticleRepository as a decorator, like so:
 
-```php
+{% highlight php %}
 // file: app/Articles/ElasticsearchArticlesRepository
 <?php namespace App\Articles;
 
@@ -247,11 +248,11 @@ class ElasticsearchArticlesRepository implements ArticlesRepository
         }, $result));
     }
 }
-```
+{% endhighlight %}
 
 Now, the trick is to decorate your repository on your Service Provider, like so:
 
-```php
+{% highlight php %}
 // file: app/Providers/RepositoriesServiceProvider.php
 <?php namespace App\Providers;
 
@@ -277,7 +278,7 @@ class RepositoriesServiceProvider extends ServiceProvider
         });
     }
 }
-```
+{% endhighlight %}
 
 Now, everywhere you depend on ArticlesRepository interface, you will actually have a ElasticsearchArticlesRepository.
 
@@ -285,7 +286,7 @@ Now, everywhere you depend on ArticlesRepository interface, you will actually ha
 
 The post is getting too long, so maybe I will do another one about quering and filtering on Elasticsearch. Worth saying that every example class here is easily testable, just mock the Elasticsearch\Client and you are good to go. To finish up, here is the seeder, so after setting up as above, just run the <code>php artisan db:seed</code> command to populate your database and elasticsearch:
 
-```php
+{% highlight php %}
 // file: database/seeds/ArticlesTableSeeder.php
 <?php
 
@@ -295,12 +296,12 @@ class ArticlesTableSeeder extends Seeder
     {
         Laracasts\TestDummy\Factory::times(50)->create('App\Article');
     }
-} 
-```
+}
+{% endhighlight %}
 
 I'm using TestDummy here, so you better check the package to have an understanding of what is going on here. It is also easy to do a cli command to reindex your elasticsearch, like so:
 
-```php
+{% highlight php %}
 // file: app/Console/IndexArticlesToElasticsearchCommand.php
 <?php namespace App\Console;
 
@@ -338,7 +339,7 @@ class IndexArticlesToElasticsearchCommand
         }
     }
 }
-```
+{% endhighlight %}
 
 After registering your command, you can run <code>php artisan app:es-index</code> to index existing articles to Elasticsearch.
 

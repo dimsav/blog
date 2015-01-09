@@ -2,7 +2,7 @@
 layout: post
 title: "Laravel 5 Command-Oriented Approach"
 date: 2015-01-02
-author: Tony Messias
+author: tony
 categories: [laravel]
 ---
 
@@ -22,7 +22,7 @@ We used to implement this approach using some packages (see [laracasts/commander
 
 A typical command looks like this:
 
-```php
+{% highlight php %}
 // file: app/Commands/SubscribeUserCommand.php
 <?php namespace App\Commands;
 
@@ -39,11 +39,11 @@ class SubscribeUserCommand extends Command
         $this->membershipType = $membershipType;
     }
 }
-```
+{% endhighlight %}
 
 Then you should have a handler like this:
 
-```php
+{% highlight php %}
 // file: app/Handlers/Commands/SubscribeUserCommandHandler.php
 <?php namespace App\Handlers\Commands;
 
@@ -84,11 +84,11 @@ class SubscribeUserCommandHandler
             $this->events->fire($event);
     }
 }
-```
+{% endhighlight %}
 
 Which you can dispatch, let's say, from your controller like so:
 
-```php
+{% highlight php %}
 // file: app/Http/Controllers/SubscriptionsController.php
 <?php namespace App\Http\Controllers;
 
@@ -118,11 +118,11 @@ class SubscriptionControllers extends Controller
     }
 }
 
-```
+{% endhighlight %}
 
 The *dispatch* method is inherited from the Controller class (which uses the <code>Illuminate\Foundation\Bus\DispatchesCommands</code>) and it maps commands to handlers. Cool stuff. This example works synchronously. If you need to handle the command in background (queue jobs) you just have to implement the <code>Illuminate\Contracts\Queue\ShouldBeQueued</code> interface on your command, like so:
 
-```php
+{% highlight php %}
 // file: app/Commands/SubscribeUserCommand.php
 <?php namespace App\Commands;
 
@@ -140,14 +140,14 @@ class SubscribeUserCommand extends Command implements ShouldBeQueued
         $this->membershipType = $membershipType;
     }
 }
-```
+{% endhighlight %}
 
 That is it! Well, actually you have to setup the queue config on <code>config/queue.php</code>, but I'm making a point here.
 
 ## Handling Events in background
 As I said, it is also possible to handle events in background, let's see an example. Let's assume your User you have a *subscribe* named constructor on your model that builds the user instance and saves it (Eloquent/ActiveRecord). Your model should look like:
 
-```php
+{% highlight php %}
 // folder: app/User.php
 <?php namespace App;
 
@@ -171,10 +171,10 @@ class User extends Model
     }
     // ...
 }
-```
+{% endhighlight %}
 
 Your event class is just a DTO and looks like this:
-```php
+{% highlight php %}
 // file: app/Events/UserSubscribedEvent.php
 <?php namespace App\Events;
 
@@ -194,11 +194,11 @@ class UserSubscribedEvent extends Event
         $this->membershipType = $membershipType;
     }
 }
-```
+{% endhighlight %}
 
 Then you have a handler like so:
 
-```php
+{% highlight php %}
 // file: app/Handlers/Events/UserSubscribedEventHandler;
 <?php namespace App\Handlers\Events;
 
@@ -221,11 +221,11 @@ class UserSubscribedEventHandler
                             
     // ... the buildMessage should be private or protected
 }
-```
+{% endhighlight %}
 
 To register your handler just go to <code>app/Providers/EventServiceProvider.php</code> and add your listener to the <code>$listen</code> property, like so:
 
-```php
+{% highlight php %}
 <?php namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -245,13 +245,13 @@ class EventServiceProvider extends ServiceProvider {
 
 }
 
-```
+{% endhighlight %}
 
 This action is executed synchronously, it means that your user is waiting for the event handler to act before being redirected to the application.
 
 To handle the event in background you just have to implement the same <code>Illuminate\Contracts\Queue\ShouldBeQueued</code> interface on your event handler class, like so:
 
-```php
+{% highlight php %}
 // file: app/Handlers/Events/UserSubscribedEventHandler;
 <?php namespace App\Handlers\Events;
 
@@ -275,18 +275,18 @@ class UserSubscribedEventHandler implements ShouldBeQueued
         
     // ... the buildMessage should be private or protected
 }
-```
+{% endhighlight %}
 
 Oh, by the way, you just give the event class to the event dispatcher, like so (using the Facade):
 
-```php
+{% highlight php %}
 <?php
 
 // somewhere in your application
 use App\Events\UserSubscribedEvent;
 
 Event::fire(new UserSubscribedEvent($userId, $membershipType));
-```
+{% endhighlight %}
 
 ## Conclusion
 

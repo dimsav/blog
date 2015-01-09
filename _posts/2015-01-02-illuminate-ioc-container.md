@@ -2,7 +2,7 @@
 layout: post
 title: Laravel IoC container
 date: 2015-01-02
-author: Hannes Van De Vreken
+author: hannes
 categories: [laravel]
 ---
 

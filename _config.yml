@@ -1,15 +1,19 @@
 # Site settings
-title: blog.madewithlove.be
+title: "blog"
 email: blog@madewithlove.be
 description: >
-  Yo yo
+  articles by the madewithlove team
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://blog.madewithlove.be" # the base hostname & protocol for your site
 twitter_username: madewithlove
 github_username:  madewithlove
 
+google_analytics:
+  tracking_code: UA-58380511-1
+
 # Build settings
 markdown: kramdown
+highlighter: pygments
 permalink: "post/:title"
 
 sass:

@@ -1,5 +1,13 @@
-<footer class="blog-footer">
-  <p class="mwl">&copy; {{ site.time | date: '%Y' }} madewithlove</p>
-  <p>Content is published under MIT license, all <a href="https://github.com/madewithlove/blog">source material can be found on GitHub</a>.
-  <p>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>.</p>
+<footer class="site-footer blog-footer">
+  <div class="contact">
+    <div>
+      <p>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>.</p>
+      <p>Follow us on Twitter: <a href="https://twitter.com/madewithlove">@madewithlove</a>.</p>
+      <p>Want to work for us? We have <a href="http://madewithlove.be/jobs">job openings</a>.</p>
+    </div>
+    <div>
+      <p>Content is published under MIT license, more info and the source material <a href="https://github.com/madewithlove/blog">can be found on GitHub</a>.</p>
+    </div>
+  </div>
+  <p class="copyright">&copy; {{ site.time | date: '%Y' }} madewithlove</p>
 </footer>

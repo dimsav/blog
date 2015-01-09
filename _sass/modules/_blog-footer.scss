@@ -1,14 +1,23 @@
-.blog-footer {
-  padding: 3em 1.5em;
-  text-align: center;
+.site-footer.blog-footer {
+  .contact > div {
+    width: 40%;
 
-  .mwl:before {
-    background: url(/assets/logo.svg) no-repeat;
-    background-size: 100% auto;
-    content: '';
-    display: inline-block;
-    height: 1em;
-    margin-right: 0.5em;
-    width: 1.25em;
+    &:first-child {
+      clear: right;
+      margin-right: 0;
+    }
+
+    &:last-child {
+      float: left;
+      margin-left: 0;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  .copyright::before {
+    background-image: url(/assets/logo.svg);
   }
 }

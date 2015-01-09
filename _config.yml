@@ -2,7 +2,7 @@
 title: blog.madewithlove.be
 email: blog@madewithlove.be
 description: >
-  Yo yo
+  articles by the madewithlove team
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://blog.madewithlove.be" # the base hostname & protocol for your site
 twitter_username: madewithlove

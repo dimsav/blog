@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Use gitattributes to for your composer installable packages"
+title:  "Use gitattributes to keep your test out of other people's production"
 date:   2015-01-14
 author: hannes
 categories: [package development]

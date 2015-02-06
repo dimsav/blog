@@ -7,7 +7,8 @@
 * Install Bower;
 * Run `bundle` in this directory;
 * Fetch styles via `bower install`;
-* Build the website via Jekyll: `jekyll build`
+* Build the website via Jekyll: `jekyll build`;
+* Use `jekyll serve` to view the blog on your local
 
 ## License
 

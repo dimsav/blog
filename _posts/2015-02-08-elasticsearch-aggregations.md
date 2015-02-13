@@ -283,7 +283,7 @@ You can try performing this aggregation removing each script (except for the `ma
 
 Well, pretty much you have `doc`, which is (of course) your document itself. But you also have a `_source` object, which corresponds to the source of your document (this one is slower than the `doc` object).
 
-The down side of using scripts in aggregations is that we can end up with a bunch of Java (Groovy) code that we have to take care. Storing them o ES and just referencing them might be better, but you need to be careful and treat your scripts as you treat your codebase.
+The down side of using scripts in aggregations is that we can end up with a bunch of Java (Groovy) code that we have to take care. You can store your scripts your scripts in elasticsearch and just reference them, but you need to be careful with it and treat it well.
 
 ## Nested Aggregations
 
@@ -457,8 +457,6 @@ You can read more about the [nested type](http://www.elasticsearch.org/guide/en/
 
 ## Conclusion
 
-Another cool thing about aggregations is that you can actually combine aggregations to your needs, but this might need it's own blog post. And you can store your scripts your scripts in elasticsearch and just reference them.
-
 The built-in aggregations are pretty cool and you can perform a lot of analyses on your data with them, with `scripted_metric` you can build your own aggregation that fits best on your context.
 
 Also worth saying that your aggregations will use the documents your query returned, so you can filter your documents in the query section and aggregate on them. You can also filter the returned documents inside another aggregation and so on.
@@ -468,3 +466,4 @@ Also worth saying that your aggregations will use the documents your query retur
 - [Elasticsearch: The Definitive Guide](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/index.html)
 - [Elasticsearch Aggregations (docs)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations.html)
 - [An Introduction to Elasticsearch Aggregations](http://blog.qbox.io/elasticsearch-aggregations)
+- [Elasticsearch Quick Start](https://leanpub.com/elasticsearch-quick-start)

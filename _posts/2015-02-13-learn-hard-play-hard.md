@@ -65,5 +65,6 @@ fully aware or wasn't even expecting anything big on this subject. But when she 
 improved performance we’ll see in future PHP versions she caught the audience's attention.
 
 ![Jonas trying the Oculus Rift](/assets/posts/2015-02-13-learn-hard-play-hard/jonas.jpg)
+
 A PHPBenelux wouldn’t be a real conference if there wasn’t some high tech stuff to try out!
 This is Jonas trying out the Oculus Rift.

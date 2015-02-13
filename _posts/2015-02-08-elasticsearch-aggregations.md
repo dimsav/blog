@@ -179,6 +179,8 @@ This will result in something like this:
 
 We are using `size:0` because we don't care about the query result, just our agrregation. This is like `count` with `group by` clause (at least it's how I see it), for those used with SQL. Pretty bool, right?
 
+> You can also send a query string param `search_type=count` and this will return just your aggregations results and counts, not the search hits. If you do so, no need to use the `size=0`.
+
 ### Stats Aggregation
 
 {% highlight bash %}
@@ -281,8 +283,188 @@ You can try performing this aggregation removing each script (except for the `ma
 
 Well, pretty much you have `doc`, which is (of course) your document itself. But you also have a `_source` object, which corresponds to the source of your document (this one is slower than the `doc` object).
 
+The down side of using scripts in aggregations is that we can end up with a bunch of Java (Groovy) code that we have to take care. Storing them o ES and just referencing them might be better, but you need to be careful and treat your scripts as you treat your codebase.
+
+## Nested Aggregations
+
+This is a special `bucket` aggregation that you can use to perform aggregations on nested documents.
+
+First, you can nest documents on any document by setting the property type to "nested", as in the example below:
+
+{% highlight bash %}
+
+{
+    ...
+    "matches" : {
+        "properties" : {
+            "players" : { 
+                "type" : "nested",
+                "properties" : {
+                    "id" : { "type" : "integer" },
+                    "name" : { "type" : "string" },
+                    "score" : { "type" : "integer" }
+                }
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+This mapping let you have a `matches` document with nested `players`, you can have an array of players in a single match. Let's say you want to display the "top players" and it is just a SUM of all scores of each player, then you could use nested aggregations like so:
+
+{% highlight bash %}
+
+$ curl -XGET localhost:9200/games/matches/_search?search_type=count -d '{
+    "aggs": {
+        "players": {
+            "nested": {
+                "path": "players"
+            },
+            "aggs": {
+                "players_ids": {
+                    "terms": {
+                        "field": "players.id",
+                        "order": {
+                            "player_score_sum": "desc"
+                        }
+                    },
+                    "aggs": {
+                        "player_score_sum": {
+                            "sum": {
+                                "field": "score"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}'
+
+{% endhighlight %}
+
+Response:
+
+{% highlight js %}
+{
+    ...
+    "aggregations": {
+      "players": {
+         "doc_count": 14,
+         "players_ids": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+               {
+                  "key": 2,
+                  "doc_count": 7,
+                  "player_score_sum": {
+                     "value": 62
+                  }
+               },
+               {
+                  "key": 1,
+                  "doc_count": 5,
+                  "player_score_sum": {
+                     "value": 35
+                  }
+               },
+               {
+                  "key": 3,
+                  "doc_count": 2,
+                  "player_score_sum": {
+                     "value": 9
+                  }
+               }
+            ]
+         }
+      }
+   }
+}
+{% endhighlight %}
+
+The `key` field is the `player.id` and the `doc_count` is in how many docs this user exists (which, in this case, can be used as "how many matches this user have played"). It's possible to limit the aggregation result by specifying a `size:X` on your aggregation definition, like so:
+
+{% highlight js %}
+{
+    ...
+    "players_ids": {
+        "terms": {
+            "field": "players.id",
+            "order": {
+                "player_score_sum": "DESC"
+            },
+            "size": 10
+        },
+        "aggs": {
+            "player_score_sum": {...}
+        }
+    }
+    ...
+}
+{% endhighlight %}
+
+In the example above we are fetching only the 10 best players.
+
+You can perform, for example, the `stats` aggregation and get a report about users scores, like so:
+
+{% highlight bash %}
+
+$ curl -XGET localhost:9200/games/matches/_search?search_type=count -d '{
+    "aggs": {
+        "players": {
+            "nested": {
+                "path": "players"
+            },
+            "aggs": {
+                "scores": {
+                    "stats": {
+                        "field": "score"
+                    }
+                }
+            }
+        }
+    }
+}'
+
+{% endhighlight %}
+
+Which will return something like this:
+
+{% highlight js %}
+
+{
+   "aggregations": {
+      "players": {
+         "doc_count": 14,
+         "scores": {
+            "count": 14,
+            "min": 0,
+            "max": 36,
+            "avg": 7.571428571428571,
+            "sum": 106
+         }
+      }
+   }
+}
+
+{% endhighlight %}
+
+Pretty cool. The examples above shows us how you can have nested documents and how you can nest/chain aggregations (not related to nested documents).
+
+You can read more about the [nested type](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-nested-type.html#_mapping) and [nested aggregations](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-nested-aggregation.html) in the docs.
+
 ## Conclusion
 
 Another cool thing about aggregations is that you can actually combine aggregations to your needs, but this might need it's own blog post. And you can store your scripts your scripts in elasticsearch and just reference them.
 
 The built-in aggregations are pretty cool and you can perform a lot of analyses on your data with them, with `scripted_metric` you can build your own aggregation that fits best on your context.
+
+Also worth saying that your aggregations will use the documents your query returned, so you can filter your documents in the query section and aggregate on them. You can also filter the returned documents inside another aggregation and so on.
+
+## Useful Resources
+
+- [Elasticsearch: The Definitive Guide](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/index.html)
+- [Elasticsearch Aggregations (docs)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations.html)
+- [An Introduction to Elasticsearch Aggregations](http://blog.qbox.io/elasticsearch-aggregations)

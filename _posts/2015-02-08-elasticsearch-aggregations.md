@@ -10,7 +10,7 @@ I have already covered how you can easily [integrate Elasticsearch with your app
 
 <!-- more -->
 
-I won't cover the basics of querying or filtering here, instead I will cover a really cool feature called *aggregations*, it's a really way to perform some analysis over your data. And I'm also going to cover a still *experimental* feature called [**scripted metric**](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-metrics-scripted-metric-aggregation.html).
+I won't cover the basics of querying or filtering here, instead I will cover a cool feature called *aggregations*, it's a way to perform some analysis over your data. And I'm also going to cover a still *experimental* feature called [**scripted metric**](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-metrics-scripted-metric-aggregation.html).
 
 To start, you need to setup Elasticsearch locally or in a VM (Vaprobash has a good script [here](https://github.com/fideloper/Vaprobash/blob/master/scripts/elasticsearch.sh)). You will also need some schema and data. You can use the example given in the documentation:
 
@@ -177,7 +177,7 @@ This will result in something like this:
 }
 {% endhighlight %}
 
-We are using `size:0` because we don't care about the query result, just our agrregation. This is like `count` with `group by` clause (at least it's how I see it), for those used with SQL. Pretty bool, right?
+We are using `size:0` because we don't care about the query result, just our agrregation. This is like `count` with `group by` clause (at least it's how I see it), for those who are used to SQL. Pretty bool, right?
 
 > You can also send a query string param `search_type=count` and this will return just your aggregations results and counts, not the search hits. If you do so, no need to use the `size=0`.
 
@@ -224,7 +224,7 @@ Response:
 }
 {% endhighlight %}
 
-Wow, this just gave us some analyses about our sales. It says that we have `4` items, `minimum` amount is 10, `maximum` is 130, `average` is 62.5 and the `sum` is 250. Ok, That's cool, but we can't use this data. Our sales also store some *costs*, so all of this fields are telling nothing to us in this context. Don't get me wrong, this aggregation is pretty cool, just not useful in this context. How can we perform some analyses about our `profit` then? Well, we can build our own aggregation using some Groovy scripts, it's called `scripted_metric`.
+Wow, this just gave us some analyses about our sales. It says that we have `4` items, `minimum` amount is 10, `maximum` is 130, `average` is 62.5 and the `sum` is 250. Ok, That's cool, but we can't use this data. Our sales also store some *costs*, so all of these fields are telling nothing to us in this context. Don't get me wrong, this aggregation is pretty cool, just not useful in this context. How can we perform some analyses about our `profit` then? Well, we can build our own aggregation using some Groovy scripts, it's called `scripted_metric`.
 
 ### Scripted-metric Aggregation
 
@@ -275,7 +275,7 @@ That is our profit. Let's now analyse what is going on here. We created a new ag
 * `init_script`: it acts in the begining of the process, prior to the collection of documents and we are ust creating an array called `transactions` in the `_agg` object (our aggregation object);
 * `map_script`: executed one per document. This, as I said, is the only one required. If you are not using any other script, you have to assign the resulting state to the `_agg` object in order to see what it does. Those familiar with `map/reduce` already got it, we can change the structure of our document for the aggregation result here. In fact, we are checking if our document type is `sale` or `cost` to `sum` or `subtract` its value properly;
 * `combine_script`: we can use this to change our aggregation structure, right now we have an array of object with a `transactions` array containing each document amount. We are using this to tranform our array of objects into a single array containing all our `amounts`;
-* `reduce_script`: the combine_script trasnformed our aggregation value into an array of `amounts`, we can *reduce*  it to a single value in this script (again, those familiar with `map/reduce` concept already knew this);
+* `reduce_script`: the combine_script transformed our aggregation value into an array of `amounts`, we can *reduce*  it to a single value in this script (again, those familiar with `map/reduce` concept already knew this);
 
 You can try performing this aggregation removing each script (except for the `map_script` that is the only one required and for the `init_script`that our `map_script` uses). It clarifies a little more. :)
 
@@ -283,7 +283,7 @@ You can try performing this aggregation removing each script (except for the `ma
 
 Well, pretty much you have `doc`, which is (of course) your document itself. But you also have a `_source` object, which corresponds to the source of your document (this one is slower than the `doc` object).
 
-The down side of using scripts in aggregations is that we can end up with a bunch of Java (Groovy) code that we have to take care. You can store your scripts your scripts in elasticsearch and just reference them, but you need to be careful with it and treat it well.
+The downside of using scripts in aggregations is that we can end up with a bunch of Java (Groovy) code that we have to take care of. You can store your scripts in elasticsearch and just reference them, but you need to be careful with it and treat it well.
 
 ## Nested Aggregations
 
@@ -311,7 +311,7 @@ First, you can nest documents on any document by setting the property type to "n
 
 {% endhighlight %}
 
-This mapping let you have a `matches` document with nested `players`, you can have an array of players in a single match. Let's say you want to display the "top players" and it is just a SUM of all scores of each player, then you could use nested aggregations like so:
+This mapping lets you have a `matches` document with nested `players`, you can have an array of players in a single match. Let's say you want to display the "top players" and it is just a SUM of all scores of each player, then you could use nested aggregations like so:
 
 {% highlight bash %}
 
@@ -451,7 +451,7 @@ Which will return something like this:
 
 {% endhighlight %}
 
-Pretty cool. The examples above shows us how you can have nested documents and how you can nest/chain aggregations (not related to nested documents).
+Pretty cool. The example above shows us how you can have nested documents and how you can nest/chain aggregations (not related to nested documents).
 
 You can read more about the [nested type](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-nested-type.html#_mapping) and [nested aggregations](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-nested-aggregation.html) in the docs.
 

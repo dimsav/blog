@@ -23,7 +23,7 @@ First off, the keynote by Yitzchok Willroth aka [coderabbi](https://twitter.com/
 avatar a couple of light bulbs came on above the heads of some readers. Yitzchok did a keynote on how to maximize your
 growth as a software developer. Where he covered things like:
 
-* The importance of php mentoring.
+* The importance of PHP mentoring.
 * The benefits of pair programming.
 * Benefits of being active on side projects.
 * The code-chain, which basically comes down to planning your coding days and how important this is doing this day by day. And also planning in a break in between.
@@ -46,12 +46,12 @@ finding and solving them.
 > “Premature optimization is a waste of time.”
 
 Another thing he covered was the [XHProf](http://pecl.php.net/package/xhprof) and [Xhgui](https://github.com/perftools/xhgui)
- profiling tool. With this tool he was able to create some great performance improvement (~20%) in a simple standard Wordpress
+ profiling tool. With these tools he was able to create some great performance improvement (~20%) in a simple standard Wordpress
  installation.
 
 ### How Not Using PHP Can Make You Better At PHP
 
-Next up [Daniel Cousineau](https://twitter.com/dcousineau) taught us how not using php makes us better at php. The key
+Next up [Daniel Cousineau](https://twitter.com/dcousineau) taught us how not using PHP makes us better at PHP. The key
 subject I held on to was by how you can improve your code skills by learning different languages.
 
 > “The languages you speak determine/influence the way you think “
@@ -62,9 +62,8 @@ The story behind this is that you’ll be able to understand coding concepts eas
 
 Finally the talk by [Sara Golemon](https://twitter.com/SaraMG) was pretty eye- and mind-opening. Probably because I wasn’t
 fully aware or wasn't even expecting anything big on this subject. But when she started talking about ‘Hack’ and the
-improved performance we’ll see in future php versions she caught the audience's attention.
-
-A PHPBenelux wouldn’t be a real conference if there wasn’t some high tech stuff to try out!
-This is Jonas trying out the Oculus Rift
+improved performance we’ll see in future PHP versions she caught the audience's attention.
 
 ![Jonas trying the Oculus Rift](/assets/posts/2015-02-13-learn-hard-play-hard/jonas.jpg)
+A PHPBenelux wouldn’t be a real conference if there wasn’t some high tech stuff to try out!
+This is Jonas trying out the Oculus Rift.

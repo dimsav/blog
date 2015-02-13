@@ -6,13 +6,13 @@ author: tony
 categories: [elasticsearch, aggregations,search]
 ---
 
-I have already covered how you can easily [integrate Elasticsearch with your app](http://blog.madewithlove.be/post/integrating-elasticsearch-with-your-laravel-app/), but I haven't talked anything about how you can *query* your data, and I believe this is not covered (I guess it's because it depends on the context you are trying to perform your query and what you really need).
+I have already covered how you can easily [integrate Elasticsearch with your app](http://blog.madewithlove.be/post/integrating-elasticsearch-with-your-laravel-app/), but I haven't talked anything about how you can *query* your data.
 
 <!-- more -->
 
 I won't cover the basics of querying or filtering here, instead I will cover a really cool feature called *aggregations*, it's a really way to perform some analysis over your data. And I'm also going to cover a still *experimental* feature called [**scripted metric**](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-metrics-scripted-metric-aggregation.html).
 
-To start, you need to setup Elasticsearch locally or in a VM (see here MISSING THE LINK). You will also need some schema and data. You can use the example given in the documentation:
+To start, you need to setup Elasticsearch locally or in a VM (Vaprobash has a good script [here](https://github.com/fideloper/Vaprobash/blob/master/scripts/elasticsearch.sh)). You will also need some schema and data. You can use the example given in the documentation:
 
 Mapping:
 

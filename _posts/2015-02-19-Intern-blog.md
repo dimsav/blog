@@ -16,11 +16,12 @@ After he briefed me about a project he was thinking about for some time. He aske
 
 ![Paul Arden's books](http://www.snerkone.be/wp-content/uploads/2015/02/2-2.jpg)
 
-*‘It’s not how good you are, it’s how good you want to be.’* by Paul Arden. This book, and two others, are considered _the Bibles of madewithlove_, which is why he wanted me to read them (and I did!). They made me understand the vision behind madewithlove and it’s team. they told me I can keep the Paul Arden book for myself, which means a lot since it’s really a pleasant book to read!
+*‘It’s not how good you are, it’s how good you want to be.’* by Paul Arden. This book, and two others, are considered _the Bibles of madewithlove_, which is why he wanted me to read them (and I did!). They made me understand the vision behind madewithlove and it’s team. They told me I can keep the Paul Arden book for myself, which means a lot since it’s really a pleasant book to read!
 
 ![Sketchbook being used.](http://www.snerkone.be/wp-content/uploads/2015/02/moleskine.jpg)
 
-**Around 7.30pm,** Andreas picked me up at my place and we drove to Rotterdam. While driving he told me about how the Internet works and how simple it actually is, consisting of just text-files transfers. Not only this, but also about the dangers of the Internet and how simple it is to find or fetch personal data (phising). He taught me countless things about servers, for example how a browser finds a webpage you’ve been looking for in this huge pile of websites all over the world.
+**Around 7.30pm,** Andreas picked me up at my place and we drove to Rotterdam. While driving he told me about how the Internet works and how simple it actually is, consisting of just text-files transfers. Not only this, but also about the dangers of the Internet and how simple it is to find or fetch personal data (phishing). He taught me countless things about servers, for example how a browser finds a webpage you’ve been looking for in this huge pile of websites all over the world.
+
 >Andreas even told me about once betting his mom he could transfer €100 from his mom’s account to his own without her noticing.
 >Two weeks later he was €100 richer.
 
@@ -38,7 +39,7 @@ The next day Andreas got up [Early](http://early.company) (6am) to run for an ho
 
 ![Arriving at the Awkward office](http://www.snerkone.be/wp-content/uploads/2015/02/awkward.jpg)
 
-Their office is really nice place. It is cosy, although looking pretty modern and stacked with fun people. Andreas and I met with Stijn (photo below) from Awkward and while they were discussing some things, I was still amazed and taking pictures of their interior.
+Their office is a really nice place. It is cosy, although looking pretty modern and stacked with fun people. Andreas and I met with Stijn (photo below) from Awkward and while they were discussing some things, I was still amazed and taking pictures of their interior.
 
 ![Awkward's entrance](http://www.snerkone.be/wp-content/uploads/2015/02/awkward-entrance.jpg)
 
@@ -46,16 +47,16 @@ Their office is really nice place. It is cosy, although looking pretty modern an
 
 ![Awkward's livingroom](http://www.snerkone.be/wp-content/uploads/2015/02/livingroom@awkward.jpg)
 
-Not only do they make beautiful digital stuff, they also make the best coffee and weirdest lunch with fermented beans that tasted really … *strong* I guess.
+Not only do they make beautiful digital stuff, they also make the best coffee and weirdest lunch with fermented beans that tasted really … *strong*, I guess.
 
 >“Do the Belgians want coffee?!” was yelled numerous times throughout the day.
 
 ![Coffee at Awkward](http://www.snerkone.be/wp-content/uploads/2015/02/cofee@awkward.jpg)
 
-The day ended at 3pm when I worked on a landing page for Addapp and got to learn how to work with [Sketch](http://bohemiancoding.com/sketch/), a designing tool which is particularly useful when designing for mobile devices for example, more useful than Adobe Illustrator for example, although Adobe Illustrator comes in handy for a lot of other things. After saying goodbye to ‘the Dutchmen’ we headed home.
+The day ended at 3pm when I worked on a landing page for Addapp and got to learn how to work with [Sketch](http://bohemiancoding.com/sketch/), a designing tool which is particularly useful when designing for mobile devices for example, more useful than Adobe Illustrator, although Adobe Illustrator comes in handy for a lot of other things. After saying goodbye to ‘the Dutchmen’ we headed home.
 
-**The rest of the week** I worked on my project, Andreas and I did a pitched to [Nico](https://twitter.com/SlimBeleggen), advisor to madewithlove and a good friend of Andreas. Nico seemed like a really nice, driven guy, actually like everyone I met at madewithlove so far.
-To end this weeks post I decided to post some photos of the building and people at madewithlove.
+**The rest of the week** I worked on my project, Andreas and I did a pitch to [Nico](https://twitter.com/SlimBeleggen), advisor to madewithlove and a good friend of Andreas. Nico seemed like a really nice, passionate guy, actually like everyone I met at madewithlove so far.
+To end this week's post I decided to post some photos of the building and people at madewithlove.
 
 Cheers!
 

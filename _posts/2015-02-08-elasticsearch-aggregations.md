@@ -461,6 +461,8 @@ The built-in aggregations are pretty cool and you can perform a lot of analyses 
 
 Also worth saying that your aggregations will use the documents your query returned, so you can filter your documents in the query section and aggregate on them. You can also filter the returned documents inside another aggregation and so on.
 
+At [madewithlove](https://twitter.com/madewithlove) we have been experimenting with a new package called [Elasticsearcher](https://github.com/madewithlove/elasticsearcher), it is working great so far. We will have a dedicated post about the package covering how to easily setup and some usage examples. Stay tuned!
+
 ## Useful Resources
 
 - [Elasticsearch: The Definitive Guide](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/index.html)

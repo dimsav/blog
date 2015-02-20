@@ -56,7 +56,7 @@ Not only do they make beautiful digital stuff, they also make the best coffee an
 The day ended at 3pm when I worked on a landing page for Addapp and got to learn how to work with [Sketch](http://bohemiancoding.com/sketch/), a designing tool which is particularly useful when designing for mobile devices for example, more useful than Adobe Illustrator, although Adobe Illustrator comes in handy for a lot of other things. After saying goodbye to ‘the Dutchmen’ we headed home.
 
 **The rest of the week** I worked on my project, Andreas and I did a pitch to [Nico](https://twitter.com/SlimBeleggen), advisor to madewithlove and a good friend of Andreas. Nico seemed like a really nice, passionate guy, actually like everyone I met at madewithlove so far.
-To end this week's post I decided to post some photos of the building and people at madewithlove.
+To end this week’s post I decided to post some photos of the building and people at madewithlove.
 
 Cheers!
 

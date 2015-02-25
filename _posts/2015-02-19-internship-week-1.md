@@ -6,12 +6,11 @@ author: Jonas Denil
 categories: [intern]
 excerpt: Sunday, the day before the start of my internship, I got a text message from Andreas (CEO) asking me if I wanted to join him Monday evening on his weekly trip to Rotterdam. Of course I wanted to!
 ---
+![Andreas solving problems at Awkward.](/assets/posts/2015-02-19-internship-week-1/working-awkward.jpg)
 
 Sunday, the day before the start of my internship, I got a text message from Andreas (CEO) asking me if I wanted to join him Monday evening on his weekly trip to Rotterdam. Of course I wanted to!
 
 > Since pictures can tell you more than a boring block of text, I will show you pictures … a lot of them.
-
-![Andreas solving problems at Awkward.](/assets/posts/2015-02-19-internship-week-1/working-awkward.jpg)
 
 The first day upon my arrival Andreas gave me a sketchbook which would come in handy the next weeks. And it did!
 After he briefed me about a project he was thinking about for some time. He asked me to think about the design and the user experience. I did use the sketchbook a lot! This little project will be something I will work on the coming six weeks.

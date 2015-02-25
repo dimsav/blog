@@ -4,6 +4,7 @@ title:  "Internship at madewithlove: week one"
 date:   2015-02-19
 author: Jonas Denil
 categories: [intern]
+excerpt: Sunday, the day before the start of my internship, I got a text message from Andreas (CEO) asking me if I wanted to join him Monday evening on his weekly trip to Rotterdam. Of course I wanted to!
 ---
 
 Sunday, the day before the start of my internship, I got a text message from Andreas (CEO) asking me if I wanted to join him Monday evening on his weekly trip to Rotterdam. Of course I wanted to!

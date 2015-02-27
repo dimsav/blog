@@ -1,10 +1,26 @@
-pre,
+pre {
+	font: 1em Monaco, monospace;
+}
+
+code,
+pre {
+	background: #EEF0F1;
+}
+
 code {
-  font: 1em Monaco, monospace;
+	font: 0.8em Monaco, monospace;
+	background: #EEF0F1;
+	padding: 0.2em;
 }
 
 pre {
-  background: #EEF0F1;
+	code {
+		font: 1em Monaco, monospace;
+		padding: 0;
+	}
+}
+
+pre {
   font-size: 0.94em;
   margin: 1em 0;
   padding: 1em;
